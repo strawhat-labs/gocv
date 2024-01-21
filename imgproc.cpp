@@ -303,6 +303,10 @@ void GoodFeaturesToTrack(Mat img, Mat corners, int maxCorners, double quality, d
     cv::goodFeaturesToTrack(*img, *corners, maxCorners, quality, minDist);
 }
 
+void GoodFeaturesToTrackWithParams(Mat img, Mat corners, int maxCorners, double quality, double minDist, Mat mask, int blockSize, bool useHarrisDetector, double k) {
+    cv::goodFeaturesToTrack(*img, *corners, maxCorners, quality, minDist, *mask, blockSize, useHarrisDetector, k);
+}
+
 void GrabCut(Mat img, Mat mask, Rect r, Mat bgdModel, Mat fgdModel, int iterCount, int mode) {
     cv::Rect cvRect = cv::Rect(r.x, r.y, r.width, r.height);
     cv::grabCut(*img, *mask, cvRect, *bgdModel, *fgdModel, iterCount, mode);

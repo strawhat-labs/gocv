@@ -947,6 +947,15 @@ func GoodFeaturesToTrack(img Mat, corners *Mat, maxCorners int, quality float64,
 	C.GoodFeaturesToTrack(img.p, corners.p, C.int(maxCorners), C.double(quality), C.double(minDist))
 }
 
+// GoodFeaturesToTrackWithParams determines strong corners on an image. The function
+// finds the most prominent corners in the image or in the specified image region.
+//
+// For further details, please see:
+// https://docs.opencv.org/master/dd/d1a/group__imgproc__feature.html#ga1d6bb77486c8f92d79c8793ad995d541
+func GoodFeaturesToTrackWithParams(img Mat, corners *Mat, maxCorners int, quality float64, minDist float64, mask Mat, blockSize int, useHarrisDetector bool, k float64) {
+	C.GoodFeaturesToTrackWithParams(img.p, corners.p, C.int(maxCorners), C.double(quality), C.double(minDist), mask.p, C.int(blockSize), C.bool(useHarrisDetector), C.double(k))
+}
+
 // GrabCutMode is the flag for GrabCut algorithm.
 type GrabCutMode int
 

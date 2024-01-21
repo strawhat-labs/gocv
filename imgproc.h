@@ -64,6 +64,7 @@ void MedianBlur(Mat src, Mat dst, int ksize);
 void Canny(Mat src, Mat edges, double t1, double t2);
 void CornerSubPix(Mat img, Mat corners, Size winSize, Size zeroZone, TermCriteria criteria);
 void GoodFeaturesToTrack(Mat img, Mat corners, int maxCorners, double quality, double minDist);
+void GoodFeaturesToTrackWithParams(Mat img, Mat corners, int maxCorners, double quality, double minDist, Mat mask, int blockSize, bool useHarrisDetector, double k);
 void GrabCut(Mat img, Mat mask, Rect rect, Mat bgdModel, Mat fgdModel, int iterCount, int mode);
 void HoughCircles(Mat src, Mat circles, int method, double dp, double minDist);
 void HoughCirclesWithParams(Mat src, Mat circles, int method, double dp, double minDist,
